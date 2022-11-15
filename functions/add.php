@@ -9,7 +9,7 @@
             
             
                 //including the database connection file
-                include_once("../dbConnection/mysqliconfig_connection.php");
+                include_once("../dbconnection/mysqlconfig_connection.php");
 
 
                 if(isset($_POST['Submit'])){
@@ -40,7 +40,7 @@
                         //if all fields are filled (not empty)
                         // insert data to database
 
-                        $result = mysqli_query($dbc, "INSERT INTO tblsubject(subject_code, subject_name) VALUES('$code', '$name')");
+                        $result = mysqli_query($dbc, "INSERT INTO tblsubjects(Subject_code, Subject_name) VALUES('$code', '$name')");
                         // display success message
                         echo "<font color='green'>Data added successfully.";
                         echo "<br/><a href='../index.php'>View Result</a>";

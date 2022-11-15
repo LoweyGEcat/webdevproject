@@ -9,7 +9,7 @@
     <a href="../index.php">Home</a>
     <br/><br/>
     <form action="../functions/add.php" method="post" name="form1">
-        <table>
+        <table width="25%" border = "0">
             <tr>
                 <td>Subject Code</td>
                 <td><input type="text" name="code"></td>
@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name="submit" value="Add"></td>
+                <td><input type="submit" name="Submit" value="Add"></td>
             </tr>
         </table>
     </form>

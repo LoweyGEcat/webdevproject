@@ -1,7 +1,7 @@
 <?php
 
     // including the database connection file
-    include_once("../dbConnection/mysqlconfig_connection.php");
+    include_once("../dbconnection/mysqlconfig_connection.php");
     if(isset($_POST['update'])){
 
         $id = $_POST['id'];
@@ -24,10 +24,10 @@
         else{
 
             // updating the table
-            mysqli_query($dbc, "UPDATE tblsubject SET subject_code='$code', subject_name='$name' WHERE subject_id='$id'");
+            mysqli_query($dbc, "UPDATE tblsubjects SET Subject_code='$code', Subject_name='$name' WHERE Subject_id='$id'");
             // redirecting to the display page. In our, it is index.php
 
-            header("location:../index.php");
+            header("location: ../index.php");
         }
 
     }
