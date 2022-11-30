@@ -42,7 +42,7 @@
                         //if all fields are filled (not empty)
                         // insert data to database
 
-                        $result = mysqli_query($dbc,"INSERT INTO tblsyllabus(<<>>) VALUES(<<>>)");
+                        $result = mysqli_query($dbc,"INSERT INTO tblsyllabus(Syllabus_code, Syllabus_author) VALUES('$code', '$author')");
                         // display success message
                         echo "<font color='green'>Data added successfully.";
                         echo "<br/><a href='../index.php'>View Result</a>";
