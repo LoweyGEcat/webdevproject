@@ -1,55 +1,37 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Add Syllabus</title>
-    </head>
-    <body>
-    
-            <?php
-            
-            
-                //including the database connection file
-                include_once("../dbconnection/mysqlconfig_connection.php");
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data</title>
+</head>
+<body>
+    <?php
+        include_once("../dbconnection/mysqlconfig_connection.php");
 
+        if(isset($_POST['Submit'])) {
+            $code = $_POST['code'];
+            $author = $_POST['author'];
+            $subject = $_POST['subject'];
 
-                if(isset($_POST['Submit'])){
-
-                    $code = $_POST['code'];
-                    $author = $_POST['author'];
-                    $subject = $_POST['subject'];
-                    
-                    // checking empty fields
-
-                    if(empty($code) || empty($author)) {
-
-                        if(empty($code)){
-                            echo"<font color='red'>Syllabus Code field is empty.</font><br/>";
-
-                        }
-
-                        if(empty($author)){
-                            echo"<font color='red'>Syllabus Author field is empty.</font><br/>";
-                            
-                        }
-                        echo"<br/><a href ='javascript:self.history.back();'>Go Back</a>";
-
-                        //link to the previous page
-                        echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
-
-                    }
-                    else {
-
-                        //if all fields are filled (not empty)
-                        // insert data to database
-
-                        $result = mysqli_query($dbc,"INSERT INTO tblsyllabus(Syllabus_code, Syllabus_author) VALUES('$code', '$author')");
-                        // display success message
-                        echo "<font color='green'>Data added successfully.";
-                        echo "<br/><a href='../index.php'>View Result</a>";
-
-                    }
+            if(empty($code) || empty($author)) {
+                if(empty($code)) {
+                    echo "<font color='red'>Syllabus Code field is empty.</font><br/>";   
                 }
-            
-            ?>
-    </body>
+                if(empty($author)) {
+                    echo "<font color='red'>Syllabus Author field is empty.</font><br/>";  
+                }
+
+                echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+            }
+            else {
+                $result = mysqli_query($dbc, "INSERT INTO tblsyllabus(Syllabus_code, Syllabus_author) VALUES('$code', '$author')");
+
+                echo "<font color='green'>Data added Successfully.";
+                echo "<br/><a href='../index.php'>View Result</a>";
+            }
+        }
+    ?>
+</body>
 </html>
